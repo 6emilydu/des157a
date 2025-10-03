@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment 1</title>
+</head>
+<body>
+    <h1>Experiment 1 - FizzBuzz</h1>
+
+    <script>
+/* <!-- LOOP
+    This program prints numbers 1-100 with two exceptions:
+    Numbers divisible by 3, prints as "Fizz".
+    Numbers divisible by 5 (but not 3), prints as "Buzz".
+
+    Used loop to be able to go through 1-100 in sequence. --> */        
+        for (let i=1;i<=100; i++){
+/*          SELECTION
+            If divisible by 3 -> print "Fizz"
+            Else if divisible by 5 -> print "Buzz"
+            Otherwise print number itself */
+            if (i % 3 ===0){
+                console.log("Fizz");
+            }
+        else if (i % 5 === 0){
+            console.log("Buzz");
+        }
+        else{
+/*          SEQUENCE
+            This line executes sequence with rest of the program */
+            console.log(i);
+        }
+    }
+    </script>
+</body>
+</html>
