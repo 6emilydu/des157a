@@ -52,7 +52,6 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-
 footer {
   background-color: #0e1b33;
   color: rgb(157, 173, 209);
@@ -74,13 +73,13 @@ footer a:hover {
 .back-bar {
   position: sticky;
   top: 0;
-  z-index: 1000; /* ensures it stays above other content */
+  z-index: 1000; 
   background-color: #0e1b33;
   color: #f8eacb;
   text-align: center;
   padding: 0.5rem 0;
   border-bottom: 2px solid #dbae4c;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .back-bar a {

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A Day in the Life of a Minion — Mad Lib</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1 class="title">A Day in the Life of a Minion</h1>
+    <p class="lead">Fill in the blanks and press <strong>Make My Story!</strong></p>
+  </header>
+
+  <main id="app" class="page-wrap" >
+    <section class="form-area" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="sr-only">Mad Libs inputs</h2>
+
+      <form id="madlib-form" novalidate>
+        <label for="adj1">1 — Adjective</label>
+        <input type="text" id="adj1" required placeholder="e.g. sleepy, explosive">
+
+        <label for="noun1">2 — Noun</label>
+        <input type="text" id="noun1" required placeholder="e.g. banana, gadget">
+
+        <label for="verb1">3 — Verb </label>
+        <input type="text" id="verb1" required placeholder="e.g. dance, explode">
+
+        <label for="noun2">4 — Noun </label>
+        <input type="text" id="noun2" required placeholder="e.g. dog, watermelon">
+
+        <label for="sound">5 — Sound </label>
+        <input type="text" id="sound" required placeholder="e.g. boom, poot">
+
+        <label for="plural">6 — Plural noun </label>
+        <input type="text" id="plural" required placeholder="e.g. penguins, tacos">
+
+        <div class="actions">
+          <input type="submit" id="make-story" value="Make My Story!">
+          <button type="button" id="reset-btn">Try Again</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="output-area" aria-live="polite" aria-atomic="true">
+      <div id="output" class="output-panel" hidden tabindex="-1"></div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <small>Made by Emily Du; GO MINIONS!!!</small>
+  </footer>
+<script>
+    
+(function () {
+  "use strict";
+
+  const form = document.querySelector("#madlib-form");
+  const outputPanel = document.querySelector("#output");
+  const resetBtn = document.querySelector("#reset-btn");
+
+  function escapeHTML(str) {
+    return String(str || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function buildStory() {
+    const adj1 = document.querySelector("#adj1").value.trim();
+    const noun1 = document.querySelector("#noun1").value.trim();
+    const verb1 = document.querySelector("#verb1").value.trim();
+    const noun2 = document.querySelector("#noun2").value.trim();
+    const sound = document.querySelector("#sound").value.trim();
+    const plural = document.querySelector("#plural").value.trim();
+
+    if (!adj1 || !noun1 || !verb1 || !noun2 || !sound || !plural) {
+      alert("Please fill in all fields.");
+      return "";
+    }
+
+    return `This morning, Minion Stuart woke up feeling very <strong>${escapeHTML(adj1)}</strong>.
+He grabbed his favorite <strong>${escapeHTML(noun1)}</strong> and ran to the lab, ready to <strong>${escapeHTML(verb1)}</strong> with his friends.
+But when he got there, Minion Bob had already invented a <strong>${escapeHTML(noun2)}</strong> that went <strong>${escapeHTML(sound)}</strong> all over the place!
+Soon, bananas were flying, and the Minions were laughing like <strong>${escapeHTML(plural)}</strong>.`;
+  }
+
+  // reveal text word by word
+  function revealText(htmlString, container) {
+    container.innerHTML = "";
+    container.hidden = false;
+
+    const tokens = htmlString.split(/(\s+)/);
+    let delay = 0;
+    tokens.forEach(token => {
+      if (/\S/.test(token)) {
+        const span = document.createElement("span");
+        span.className = "word";
+        span.style.animationDelay = `${delay}ms`;
+        span.innerHTML = token;
+        container.appendChild(span);
+        delay += 90;
+      } else {
+        container.appendChild(document.createTextNode(token));
+      }
+    });
+
+    container.focus?.();
+  }
+
+  form.addEventListener("submit", evt => {
+    evt.preventDefault();
+    const storyHtml = buildStory();
+    if (!storyHtml) return;
+    revealText(storyHtml, outputPanel);
+  });
+
+  resetBtn.addEventListener("click", () => {
+    form.reset();
+    outputPanel.innerHTML = "";
+    outputPanel.hidden = true;
+    document.querySelector("#adj1").focus();
+  });
+})();
+
+</script>
+</body>
+</html>
