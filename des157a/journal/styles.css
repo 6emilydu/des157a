@@ -1,0 +1,94 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #222;
+  background-color: #dddbcd;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #0e1b33; 
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  margin:0;
+  color: #dbae4c;
+}
+
+.journal-entries {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.journal-entries article {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2rem;
+}
+
+.journal-entries h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0e1b33;
+}
+
+.journal-entries time {
+  font-style: italic;
+  color: #555;
+}
+
+.journal-entries p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 45ch;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #0e1b33;
+  color: rgb(157, 173, 209);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+footer a {
+  color: #f8eacb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.back-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+  background-color: #0e1b33;
+  color: #f8eacb;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #dbae4c;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-bar a {
+  color: #f8eacb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-bar a:hover {
+  text-decoration: underline;
+}
+
