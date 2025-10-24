@@ -63,15 +63,6 @@
   const outputPanel = document.querySelector("#output");
   const resetBtn = document.querySelector("#reset-btn");
 
-  function escapeHTML(str) {
-    return String(str || "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
-  }
-
   function buildStory() {
     const adj1 = document.querySelector("#adj1").value.trim();
     const noun1 = document.querySelector("#noun1").value.trim();
@@ -85,37 +76,19 @@
       return "";
     }
 
-    return `This morning, Minion Stuart woke up feeling very <strong>${escapeHTML(adj1)}</strong>.
-He grabbed his favorite <strong>${escapeHTML(noun1)}</strong> and ran to the lab, ready to <strong>${escapeHTML(verb1)}</strong> with his friends.
-But when he got there, Minion Bob had already invented a <strong>${escapeHTML(noun2)}</strong> that went <strong>${escapeHTML(sound)}</strong> all over the place!
-Soon, bananas were flying, and the Minions were laughing like <strong>${escapeHTML(plural)}</strong>.`;
+    return `This morning, Minion Stuart woke up feeling very <strong>${adj1}</strong>.
+He grabbed his favorite <strong>${noun1}</strong> and ran to the lab, ready to <strong>${verb1}</strong> with his friends.
+But when he got there, Minion Bob had already invented a <strong>${noun2}</strong> that went <strong>${sound}</strong> all over the place!
+Soon, bananas were flying, and the Minions were laughing like <strong>${plural}</strong>.`;
   }
 
-  // reveal text word by word
   function revealText(htmlString, container) {
-    container.innerHTML = "";
+    container.innerHTML = htmlString;
     container.hidden = false;
-
-    const tokens = htmlString.split(/(\s+)/);
-    let delay = 0;
-    tokens.forEach(token => {
-      if (/\S/.test(token)) {
-        const span = document.createElement("span");
-        span.className = "word";
-        span.style.animationDelay = `${delay}ms`;
-        span.innerHTML = token;
-        container.appendChild(span);
-        delay += 90;
-      } else {
-        container.appendChild(document.createTextNode(token));
-      }
-    });
-
-    container.focus?.();
   }
 
-  form.addEventListener("submit", evt => {
-    evt.preventDefault();
+  form.addEventListener("submit", e => {
+    e.preventDefault();
     const storyHtml = buildStory();
     if (!storyHtml) return;
     revealText(storyHtml, outputPanel);
@@ -128,6 +101,7 @@ Soon, bananas were flying, and the Minions were laughing like <strong>${escapeHT
     document.querySelector("#adj1").focus();
   });
 })();
+
 
 </script>
 </body>
