@@ -1,17 +1,17 @@
-(function () {
-  "use strict";
+(function(){
+    console.log('reading JS');
 
   const form = document.querySelector("#madlib-form");
   const outputPanel = document.querySelector("#output");
   const resetBtn = document.querySelector("#reset-btn");
 
   function buildStory() {
-    const adj1 = document.querySelector("#adj1").value();
-    const noun1 = document.querySelector("#noun1").value();
-    const verb1 = document.querySelector("#verb1").value();
-    const noun2 = document.querySelector("#noun2").value();
-    const sound = document.querySelector("#sound").value();
-    const plural = document.querySelector("#plural").value();
+    const adj1 = document.querySelector("#adj1").value;
+    const noun1 = document.querySelector("#noun1").value;
+    const verb1 = document.querySelector("#verb1").value;
+    const noun2 = document.querySelector("#noun2").value;
+    const sound = document.querySelector("#sound").value;
+    const plural = document.querySelector("#plural").value;
 
     if (!adj1 || !noun1 || !verb1 || !noun2 || !sound || !plural) {
       alert("Please fill in all fields.");
