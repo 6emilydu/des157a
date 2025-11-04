@@ -1,5 +1,5 @@
-(function(){
-    console.log('reading JS');
+(function () {
+  "use strict";
 
   const form = document.querySelector("#madlib-form");
   const outputPanel = document.querySelector("#output");
