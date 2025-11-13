@@ -3,81 +3,41 @@
 
   const points = document.querySelectorAll('.point');
   const popups = document.querySelectorAll('.popup');
+  const baseMap = document.querySelector('.world-map');
+  const countries = [
+    { area: '#country1-area', img: '#country1' },
+    { area: '#country2-area', img: '#country2' },
+    { area: '#country3-area', img: '#country3' },
+    { area: '#country4-area', img: '#country4' },
+    { area: '#country5-area', img: '#country5' }
+  ];
 
-  // area of the countries
-  const area1 = document.querySelector('#country1-area');
-  const area2 = document.querySelector('#country2-area');
-  const area3 = document.querySelector('#country3-area');
-  const area4 = document.querySelector('#country4-area');
-  const area5 = document.querySelector('#country5-area');
-
-  // selecting the country
-  const img1 = document.querySelector('#country1');
-  const img2 = document.querySelector('#country2');
-  const img3 = document.querySelector('#country3');
-  const img4 = document.querySelector('#country4');
-  const img5 = document.querySelector('#country5');
-  const baseMap = document.querySelectorAll('.world-map'); 
-
-  // hide all
+  // hide all images
   function resetImages() {
-    img1.style.display = 'none';
-    img2.style.display = 'none';
-    img3.style.display = 'none';
-    img4.style.display = 'none';
-    img5.style.display = 'none';
+    countries.forEach(function(country) {
+      document.querySelector(country.img).style.display = 'none';
+    });
   }
 
-  // hovering over the countries
-  area1.addEventListener('mouseover', function() {
-    resetImages();
-    img1.style.display = 'block';
-  });
-  area1.addEventListener('mouseout', function() {
-    resetImages();
-    baseMap.style.display = 'block';
-  });
+  // hover over countries
+  countries.forEach(function(country) {
+    const areaEl = document.querySelector(country.area);
+    const imgEl = document.querySelector(country.img);
 
-  area2.addEventListener('mouseover', function() {
-    resetImages();
-    img2.style.display = 'block';
-  });
-  area2.addEventListener('mouseout', function() {
-    resetImages();
-    baseMap.style.display = 'block';
-  });
+    areaEl.addEventListener('mouseover', function() {
+      resetImages();
+      imgEl.style.display = 'block';
+    });
 
-  area3.addEventListener('mouseover', function() {
-    resetImages();
-    img3.style.display = 'block';
+    areaEl.addEventListener('mouseout', function() {
+      resetImages();
+      baseMap.style.display = 'block';
+    });
   });
-  area3.addEventListener('mouseout', function() {
-    resetImages();
-    baseMap.style.display = 'block';
-  });
-
-  area4.addEventListener('mouseover', function() {
-    resetImages();
-    img4.style.display = 'block';
-  });
-  area4.addEventListener('mouseout', function() {
-    resetImages();
-    baseMap.style.display = 'block';
-  });
-
-  area5.addEventListener('mouseover', function() {
-    resetImages();
-    img5.style.display = 'block';
-  });
-  area5.addEventListener('mouseout', function() {
-    resetImages();
-    baseMap.style.display = 'block';
-  });
-
 
   function showPopup(dot) {
     // hide all popups first
-    popups.forEach(popup => {
+    popups.forEach(function(popup) {
       popup.classList.remove('show');
     });
 
@@ -99,7 +59,7 @@
   }
 
   // click a point to show popup
-  points.forEach(dot => {
+  points.forEach(function(dot) {
     dot.addEventListener('click', function(e) {
       e.preventDefault(); 
       showPopup(dot);
@@ -110,14 +70,14 @@
   document.addEventListener('click', function(e) {
     let clickedOnDot = false;
 
-    points.forEach(dot => {
+    points.forEach(function(dot) {
       if (e.target === dot) {
         clickedOnDot = true;
       }
     });
 
     if (!clickedOnDot) {
-      popups.forEach(popup => {
+      popups.forEach(function(popup) {
         popup.classList.remove('show');
       });
     }
