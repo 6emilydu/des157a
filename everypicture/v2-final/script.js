@@ -49,8 +49,8 @@
       popup.className = 'popup show'; 
 
       // positioning popup
-    const popupTop = dot.offsetTop - 250;
-    const popupLeft = dot.offsetLeft -650; 
+    const popupTop = dot.offsetTop + 20;
+    const popupLeft = dot.offsetLeft - 300; 
 
     popup.style.top = `${popupTop}px`;
     popup.style.left = `${popupLeft}px`;
