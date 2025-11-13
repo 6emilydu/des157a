@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Travel Destinations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+
+<body>
+  <main>
+    <h1>Emily's Amazing Travels!</h1>
+    <h2>Hover over the countries and click on the pins :)</h2>
+
+    <section class="worldmap">
+    <div class="map-container">
+    <img src="images/worldmap.jpg" alt="World map" usemap="#image-map" width="1200" height="767">
+    </div>
+
+      <!-- images -->
+      <img src="images/usa.jpg" alt="USA" id="country1" width="1200" height="767">
+      <img src="images/italy.jpg" alt="Italy" id="country2" width="1200" height="767">
+      <img src="images/indo.jpg" alt="Indonesia" id="country3" width="1200" height="767">
+      <img src="images/jap.jpg" alt="Japan" id="country4" width="1200" height="767">
+      <img src="images/switz.jpg" alt="Switzerland" id="country5" width="1200" height="767">
+
+      <!-- image Map -->
+      <map name="image-map">
+        <area alt="USA" title="USA" id="country1-area" coords="86,283,318,406" shape="rect" href="images/usa.jpg">
+        <area alt="Italy" title="Italy" id="country2-area" coords="633,309,571,359" shape="rect" href="images/italy.jpg">
+        <area alt="Indonesia" title="Indonesia" id="country3-area" coords="890,464,1080,562" shape="rect" href="images/indo.jpg">
+        <area alt="Japan" title="Japan" id="country4-area" coords="1004,259,1079,395" shape="rect" href="images/jap.jpg">
+        <area alt="Switzerland" title="Switzerland" id="country5-area" coords="576,275,624,307" shape="rect" href="images/switz.jpg">
+      </map>
+      <!-- points -->
+      <button class="point" data-popup="japan" aria-label="Japan"></button>
+      <button class="point" data-popup="switzerland" aria-label="Switzerland"></button>
+      <button class="point" data-popup="italy" aria-label="Italy"></button>
+      <button class="point" data-popup="bali" aria-label="Bali"></button>
+      <button class="point" data-popup="nyc" aria-label="New York City"></button>
+
+      <!-- popups -->
+      <div class="popup" data-location="japan">
+        <img src="images/takeawat1.jpg" alt="Japan trip">
+        <div class="text">
+          <h2>Japan 2023</h2>
+          <p><strong>Backstory:</strong> Being a dream destination since I was young, being able to finally make it come true made me so happy. This also happened to be my first trip with my boyfriend as well, as he also wanted to visit Japan.</p>
+          <p><strong>What I Did:</strong> We did a lot of scenic trips and went to eat at many local spots in the areas. We visited many cities within a 2-week span: Tokyo, Kyoto, Osaka, and Fujinomiya, adventuring around the cities.</p>
+          <p><strong>Favorite Memory:</strong> My favorite memory has to be hiking Fushimi Inari in Kyoto, as we took a path away from the touristy one. The photo is one of the views I saw during the hike and I felt like the walk was so relaxing and allowed me to really connect with nature.</p>
+          <p><strong>Takeaways:</strong> This has to be my favorite destination out of all the places I have been. From learning how to navigate the train stations to finding hidden gems, every moment was unforgettable!</p>
+        </div>
+      </div>
+
+      <div class="popup" data-location="switzerland">
+        <img src="images/cows.jpg" alt="Switzerland trip">
+        <div class="text">
+          <h2>Switzerland 2024</h2>
+          <p><strong>Backstory:</strong> I always loved to hike and just take long strolls and I felt like Switzerland had amazing views that felt ethereal. I wanted to go to Switzerland since watching a Korean drama called "Crash Landing on You." There were scenes taken from Switzerland itself and I felt like those scenes really captivated my eyes. </p>
+          <p><strong>What I Did:</strong> Mainly <strong>A LOT</strong> of walking (10k+ steps) and adventuring the country mainly staying in Interlaken and Lauterbrunnen. We didn't have a set schedule to follow and went with the flow a majority of the trip, which I felt was nice.</p>
+          <p><strong>Favorite Memory:</strong> My favorite memory are the walks me and my boyfriend have done in Lauterbrunnen. The photo taken was from our walk of the cows grazing in a field, everything felt very peaceful to me. Although it isn't anything too crazy, I really enjoyed just walking, talking, and enjoying the views.</p>
+          <p><strong>Takeaways:</strong> Usually, when I go to a place I will always charge towards the food. Although we weren't able to go to any restaurants at all here due to the outrages prices, I felt like the views made up for it overall. Being able to wake up to a mountainous view every morning here made my day and I would do it again.</p>
+        </div>
+      </div>
+
+      <div class="popup" data-location="italy">
+        <img src="images/italycover.jpg" alt="Italy trip">
+        <div class="text">
+          <h2>Italy 2024</h2>
+          <p><strong>Backstory:</strong> Went to Italy right after our Switzerland trip and spent 2 weeks here! We wanted to sightsee and eat all the pizza, pasta, and tiramisu known to mankind here. I absolutely love pasta so every meal I had was a different pasta each time, occasionally eating a pizza here and there.</p>
+          <p><strong>What I Did:</strong> We went to multiple cities such as Rome, Florence, Varenna to see popular spots and eat everywhere. A few of the spots we went to were the Trevi Fountain, Lake Como, and walking around museums to see art. </p>
+          <p><strong>Favorite Memory:</strong> Art being very prominent in Italy, everywhere I walked I saw some type of architecture or even artists drawing on the streets of Italy. I enjoyed slowing down and stopping at every piece of art I see, such as the sculpture (La clemenza di Tito (Titus' Mercy) by Giovan Battista Comolli) that I captured while just walking around the city of Varenna! </p>
+          <p><strong>Takeaways:</strong> Being a absolute fool for some good food, Italy definitely is up there when it comes to some delicious food. I really appreciated all the art and popular spots but I felt like hospitality was a bit lacking as they were a bit rude to us here and there.</p>
+        </div>
+      </div>
+
+      <div class="popup" data-location="bali">
+        <img src="images/grand.jpg" alt="Bali trip">
+        <div class="text">
+          <h2>Bali 2024</h2>
+          <p><strong>Backstory:</strong> My boyfriend grew up in Bali, Indonesia as a kid and still had family and friends there. His family invited me to go with them over the summer to visit their hometown and I gladly went to see how he grew up.</p>
+          <p><strong>What I Did:</strong> Since his family had a villa we really spent the summer relaxing with a few trips to other cities here and there. We mainly went to the malls and stayed at the villa ordering takeout food all the time. Since prices were super cheap we couldn't resist ourself and indulged in a lot of shopping.</p>
+          <p><strong>Favorite Memory:</strong> Seeing his family made me happy since I was able to bond and get to know his family more. My favorite memory happen to be with his grandpa in where we went to a different city called Jatiluwih where we ate food and visited his family friends. </p>
+          <p><strong>Takeaways:</strong> Although we did not do much on this trip I felt like I made a lot of core memories with his family and got to experience what he grew up with. My boyfriend showed me around and I enjoyed getting to know the foods he ate growing up and how Bali has shaped him as a person.</p>
+        </div>
+      </div>
+
+      <div class="popup" data-location="nyc">
+        <img src="images/fren.jpg" alt="New York City trip">
+        <div class="text">
+          <h2>NYC 2024</h2>
+          <p><strong>Backstory:</strong> This trip I went with my best friend of ten years now and still counting! We never went on a trip together like this before so we planned it to NYC. We have been planning this for months prior and I felt like the days leading up to the trip felt unreal since I wouldn't have thought that I would be going on a trip with a friend of 10 years.</p>
+          <p><strong>What I Did:</strong> We did the usual touristy stuff mainly and a few were: Central Park, MOMA, and visited the Times Square as well. Although they are known to be crowded I felt like I had a good time walking around and sightseeing. We also had bagels every single morning before we went to go somewhere else.</p>
+          <p><strong>Favorite Memory:</strong> My favorite memory has to be going to the MET Museum and being able to see the works of what I see online all the time in person. We walked through the entire museum and dilly dallied around looking at all the art works and sculptures!</p>
+          <p><strong>Takeaways:</strong> New York was definitely an experience to say the least. I wasn't a huge fan of the crowded areas and felt kind of overwhelmed when going to Times Square as such, but I felt like it was a good experience to have. I enjoyed spending time with my bestfriend and realized how similar we are in traveling styles. I hope to be able to go on another trip with her again in the future! :)</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
