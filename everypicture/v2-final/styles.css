@@ -8,7 +8,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 40px;
 }
 
 body::before {
@@ -35,7 +34,7 @@ h2{
   position: relative;
   display: block;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto 100px auto;
   z-index: 1;
   opacity: 90%;
@@ -81,11 +80,11 @@ h2{
 }
 
 /*  positions of the dots  */
-.point[data-popup="japan"] { top: 43%; left: 87%; }
-.point[data-popup="switzerland"] { top: 39%; left: 50%; }
-.point[data-popup="italy"] { top: 42%; left: 51%; }
-.point[data-popup="bali"] { top: 70%; left: 82%; }
-.point[data-popup="nyc"] { top: 43%; left: 22%; }
+.point[data-popup="japan"] { top: 46%; left: 91%; }
+.point[data-popup="switzerland"] { top: 47%; left: 52%; }
+.point[data-popup="italy"] { top: 51%; left: 53%; }
+.point[data-popup="bali"] { top: 81%; left: 82%; }
+.point[data-popup="nyc"] { top: 52%; left: 22%; }
 
 
 /* popups of the dots */
