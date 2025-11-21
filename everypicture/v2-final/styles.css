@@ -9,7 +9,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   padding-bottom: 40px;
-  min-height: 750px;
 }
 
 body::before {
@@ -34,15 +33,23 @@ h2{
 /* map */
 .worldmap {
   position: relative;
-  width: 100%;
+  display: block;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
   z-index: 1;
   opacity: 90%;
   border: 10px dotted #885b0883;
+
 }
 
 .world-map {
-  width: 90%;
+  top:0;
+  left:0;
+  width: 100%;
   height: auto;
+  display: block;
+  position:relative;
 }
 
 #country1,
