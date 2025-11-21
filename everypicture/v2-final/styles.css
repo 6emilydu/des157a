@@ -8,6 +8,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  padding-bottom: 40px;
 }
 
 body::before {
@@ -39,7 +40,7 @@ h2{
   max-width: 1200px;
   z-index: 1;
   opacity: 90%;
-border: 10px dotted #885b0883;
+  border: 10px dotted #885b0883;
 
 }
 
@@ -50,7 +51,6 @@ border: 10px dotted #885b0883;
   height: auto;
   display: block;
   position: absolute;
-  
 }
 
 #country1,
