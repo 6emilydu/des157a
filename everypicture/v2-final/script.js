@@ -50,7 +50,7 @@
 
       // positioning popup
     popup.style.position = 'fixed';
-    popup.style.top = '45%';
+    popup.style.top = '50%';
     popup.style.left = '50%';
     popup.style.transform = 'translate(-50%, -50%)';
     }
