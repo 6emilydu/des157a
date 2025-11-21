@@ -49,12 +49,10 @@
       popup.className = 'popup show'; 
 
       // positioning popup
-    const popupTop = dot.offsetTop + 20;
-    const popupLeft = dot.offsetLeft - 300; 
-
-    popup.style.top = `${popupTop}px`;
-    popup.style.left = `${popupLeft}px`;
-
+    popup.style.position = 'fixed';
+    popup.style.top = '50%';
+    popup.style.left = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
     }
   }
 

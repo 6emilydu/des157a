@@ -2,7 +2,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   text-align: center;
-
+  overflow: hidden;
   /* background image */
   background-image: url('images/bckground.jpg'); 
   background-size: cover;
@@ -38,7 +38,6 @@ h2{
   max-width: 1200px;
   z-index: 1;
   opacity: 90%;
-  
 }
 
 .world-map {
