@@ -24,8 +24,8 @@ h1 {
   margin-bottom: 10px;
   color: #173e94;
   text-align: center;
-  border: 15px dotted #0051ff5e;
-  padding: 15px;
+  border: 10px dotted #0051ff5e;
+  padding: 10px;
 }
 h2{
     color:#376cdd;
@@ -35,9 +35,10 @@ h2{
 /* map */
 .worldmap {
   position: relative;
-  display: inline-block;
-  width: 100%;
+  display: block;
+  width: 90%;
   max-width: 1200px;
+  margin: 0 auto 100px auto;
   z-index: 1;
   opacity: 90%;
   border: 10px dotted #885b0883;
@@ -50,7 +51,7 @@ h2{
   width: 100%;
   height: auto;
   display: block;
-  position: absolute;
+  position:relative;
 }
 
 #country1,
