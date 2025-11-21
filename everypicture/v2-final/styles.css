@@ -1,3 +1,9 @@
+.page-container {
+  width: 1200px;         
+  margin: 0 auto;         
+  position: relative;     
+}
+
 body { 
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -9,6 +15,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   padding-bottom: 40px;
+  min-height: 750px;
 }
 
 body::before {
@@ -24,8 +31,6 @@ h1 {
   margin-bottom: 10px;
   color: #173e94;
   text-align: center;
-  border: 10px dotted #0051ff5e;
-  padding: 10px;
 }
 h2{
     color:#376cdd;
@@ -35,23 +40,17 @@ h2{
 /* map */
 .worldmap {
   position: relative;
-  display: block;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto 100px auto;
+  width: 100%;
   z-index: 1;
   opacity: 90%;
   border: 10px dotted #885b0883;
-
 }
 
 .world-map {
-  top:0;
-  left:0;
   width: 100%;
-  height: auto;
+  height: auto%;
   display: block;
-  position:relative;
+  object-fit: contain;
 }
 
 #country1,
