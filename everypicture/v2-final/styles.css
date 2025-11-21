@@ -8,7 +8,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
 }
 
 body::before {
@@ -24,6 +23,8 @@ h1 {
   margin-bottom: 10px;
   color: #173e94;
   text-align: center;
+  border: 15px dotted #0051ff5e;
+  padding: 15px;
 }
 h2{
     color:#376cdd;
@@ -38,6 +39,8 @@ h2{
   max-width: 1200px;
   z-index: 1;
   opacity: 90%;
+border: 10px dotted #885b0883;
+
 }
 
 .world-map {
@@ -47,6 +50,7 @@ h2{
   height: auto;
   display: block;
   position: absolute;
+  
 }
 
 #country1,
@@ -88,7 +92,7 @@ h2{
 /* popups of the dots */
 .popup {
   position: absolute;
-  background: white;
+  background: rgb(235, 235, 235);
   padding: 15px;
   width: 600px;
   border-radius: 10px;
