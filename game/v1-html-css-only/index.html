@@ -102,8 +102,6 @@ restartBtn.addEventListener('click', resetGame);
 rollBtn.addEventListener('click', throwDice);
 passBtn.addEventListener('click', passTurn);
 
-
-
 function startGame() {
   if (Math.random() < 0.5) {
     gameData.index = 0;
@@ -139,7 +137,6 @@ function setUpTurn() {
   enableButtons(true);
   resetDice();
 }
-
 
 function throwDice() {
   if (isGameOver()) {
@@ -230,12 +227,12 @@ function updateTurn() {
 }
 
 function showCurrentScore() {
-  for (var i = 0; i < 2; i++) {
+  for (let i = 0; i < 2; i++) {
     scoreTexts[i].textContent =
       gameData.score[i] + " / " + gameData.gameEnd;
 
     hpBars[i].style.width =
-      (gameData.score[i] / gameData.gameEnd) * 120 + "px";
+      (gameData.score[i] / gameData.gameEnd) * 150 + "px";
   }
 }
 
