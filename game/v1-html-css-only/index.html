@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pig Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="title">THE PIG GAME</h1>
+  </header>
+
+  <section class="instructions">
+    <img src="images/pig.png" class="pig-icon" alt="Pig Icon">
+    <p>
+      ✲ There are two players. The player whose turn it is rolls the dice.
+      The total of the roll is added to the current player's score, unless a
+      die comes up as a “1”. If that happens, the turn is over.
+
+      Players may roll again or pass. First to reach 30 points wins.
+
+      Rolling double ones (snake eyes) resets your total score to zero!
+    </p>
+  </section>
+
+  <section class="start-screen">
+    <button class="start-btn">❤️ START A GAME?</button>
+  </section>
+
+  <section class="game-screen hidden">
+
+    <div class="game-top">
+      <div class="turn-box">
+        <div class="turn-content">
+          <img src="images/sans.png" class="player-icon" alt="Player Icon">
+          <p>✲ Roll for Player 1</p>
+        </div>
+      </div>
+
+      <div class="dice-area">
+        <img src="images/dice1.png" class="dice" alt="Dice 1">
+        <img src="images/dice1.png" class="dice" alt="Dice 2">
+      </div>
+
+      <div class="hp-container">
+        <div class="hp-row">
+          <span>Player 1 HP</span>
+          <div class="hp-bar player1-bar"></div>
+          <span class="player1-score">0 / 30</span>
+        </div>
+        <div class="hp-row">
+          <span>Player 2 HP</span>
+          <div class="hp-bar player2-bar"></div>
+          <span class="player2-score">0 / 30</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="roll-btn">O ROLL</button>
+      <button class="pass-btn">X PASS</button>
+    </div>
+
+    <button class="restart-btn">❤️ RESTART?</button>
+  </section>
+<script>
+"use strict";
+
+// BUTTONS + MAIN ELEMENTS
+const startBtn = document.querySelector('.start-btn');
+const gameScreen = document.querySelector('.game-screen');
+const restartBtn = document.querySelector('.restart-btn');
+const rollBtn = document.querySelector('.roll-btn');
+const passBtn = document.querySelector('.pass-btn');
+
+const turnBox = document.querySelector('.turn-box p');
+const playerIcon = document.querySelector('.player-icon');
+const diceImages = document.querySelectorAll('.dice');
+const hpBars = [
+  document.querySelector('.player1-bar'),
+  document.querySelector('.player2-bar')
+];
+const scoreTexts = [
+  document.querySelector('.player1-score'),
+  document.querySelector('.player2-score')
+];
+
+// GAME DATA
+const gameData = {
+  players: ['Player 1', 'Player 2'],
+  score: [0, 0],
+  roll1: 0,
+  roll2: 0,
+  index: 0,
+  gameEnd: 30
+};
+
+// EVENT LISTENERS
+startBtn.addEventListener('click', startGame);
+restartBtn.addEventListener('click', resetGame);
+rollBtn.addEventListener('click', throwDice);
+passBtn.addEventListener('click', passTurn);
+
+
+// ========= GAME FUNCTIONS =========
+
+function startGame() {
+  // Pick a random starting player
+  if (Math.random() < 0.5) {
+    gameData.index = 0;
+  } else {
+    gameData.index = 1;
+  }
+
+  document.querySelector('.start-screen').classList.add('hidden');
+  gameScreen.classList.remove('hidden');
+
+  setUpTurn();
+}
+
+function resetGame() {
+  gameData.score[0] = 0;
+  gameData.score[1] = 0;
+  gameData.index = 0;
+
+  gameScreen.classList.add('hidden');
+  document.querySelector('.start-screen').classList.remove('hidden');
+
+  showCurrentScore();
+  resetDice();
+}
+
+function setUpTurn() {
+  if (isGameOver()) {
+    return;
+  }
+
+  updateTurn();
+  showCurrentScore();
+  enableButtons(true);
+  resetDice();
+}
+
+// ========== DICE ROLLING ==========
+
+function throwDice() {
+  if (isGameOver()) {
+    return;
+  }
+
+  // Roll two dice (1–6)
+  gameData.roll1 = Math.floor(Math.random() * 6) + 1;
+  gameData.roll2 = Math.floor(Math.random() * 6) + 1;
+
+  diceImages[0].src = "images/dice" + gameData.roll1 + ".png";
+  diceImages[1].src = "images/dice" + gameData.roll2 + ".png";
+
+  // Snake eyes
+  gameData.rollSum = gameData.roll1 + gameData.roll2;
+  if (gameData.rollSum === 2) {
+    turnBox.textContent = "Oh snap! Snake eyes!";
+    gameData.score[gameData.index] = 0;
+    gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+    showCurrentScore();
+    setTimeout(setUpTurn, 2000);
+    return;
+  }
+
+  if (gameData.roll1 === 1 || gameData.roll2 === 1) {
+    turnBox.textContent = "Hit a 1! Switching player...";
+    gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+    switchPlayer();
+    return;
+  }
+
+  gameData.score[gameData.index] += gameData.roll1 + gameData.roll2;
+  showCurrentScore();
+
+  if (!checkWinningCondition()) {
+    updateTurn();
+  }
+}
+
+function passTurn() {
+  if (isGameOver()) {
+    return;
+  }
+  gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+  setUpTurn();
+}
+
+function switchPlayer() {
+  setTimeout(function () {
+    if (isGameOver()) {
+      return;
+    }
+
+    setUpTurn();
+  }, 1500);
+}
+
+// ========= CHECKS =========
+
+function checkWinningCondition() {
+  if (gameData.score[gameData.index] >= gameData.gameEnd) {
+    turnBox.textContent =
+      gameData.players[gameData.index] +
+      " wins with " +
+      gameData.score[gameData.index] +
+      " points!";
+
+    enableButtons(false);
+    return true;
+  }
+  return false;
+}
+
+function isGameOver() {
+  if (gameData.score[0] >= gameData.gameEnd ||
+      gameData.score[1] >= gameData.gameEnd) {
+    return true;
+  }
+  return false;
+}
+
+
+function updateTurn() {
+  if (gameData.index === 0) {
+    playerIcon.src = "images/sans.png";
+  } else {
+    playerIcon.src = "images/papyrus.png";
+  }
+
+  turnBox.textContent = "Roll for " + gameData.players[gameData.index];
+}
+
+function showCurrentScore() {
+  for (var i = 0; i < 2; i++) {
+    scoreTexts[i].textContent =
+      gameData.score[i] + " / " + gameData.gameEnd;
+
+    hpBars[i].style.width =
+      (gameData.score[i] / gameData.gameEnd) * 120 + "px";
+  }
+}
+
+function resetDice() {
+  diceImages[0].src = "images/dice1.png";
+  diceImages[1].src = "images/dice1.png";
+}
+
+function enableButtons(enable) {
+  rollBtn.disabled = !enable;
+  passBtn.disabled = !enable;
+
+  if (enable) {
+    rollBtn.style.opacity = 1;
+    passBtn.style.opacity = 1;
+  } else {
+    rollBtn.style.opacity = 0.5;
+    passBtn.style.opacity = 0.5;
+  }
+}
+</script>
+
+</body>
+</html>
