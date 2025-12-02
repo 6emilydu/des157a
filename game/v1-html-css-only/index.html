@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <title>The Pig Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -66,10 +66,10 @@
 
     <button class="restart-btn">❤️ RESTART?</button>
   </section>
+
 <script>
 "use strict";
 
-// BUTTONS + MAIN ELEMENTS
 const startBtn = document.querySelector('.start-btn');
 const gameScreen = document.querySelector('.game-screen');
 const restartBtn = document.querySelector('.restart-btn');
@@ -88,7 +88,6 @@ const scoreTexts = [
   document.querySelector('.player2-score')
 ];
 
-// GAME DATA
 const gameData = {
   players: ['Player 1', 'Player 2'],
   score: [0, 0],
@@ -98,17 +97,14 @@ const gameData = {
   gameEnd: 30
 };
 
-// EVENT LISTENERS
 startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', resetGame);
 rollBtn.addEventListener('click', throwDice);
 passBtn.addEventListener('click', passTurn);
 
 
-// ========= GAME FUNCTIONS =========
 
 function startGame() {
-  // Pick a random starting player
   if (Math.random() < 0.5) {
     gameData.index = 0;
   } else {
@@ -144,21 +140,18 @@ function setUpTurn() {
   resetDice();
 }
 
-// ========== DICE ROLLING ==========
 
 function throwDice() {
   if (isGameOver()) {
     return;
   }
 
-  // Roll two dice (1–6)
   gameData.roll1 = Math.floor(Math.random() * 6) + 1;
   gameData.roll2 = Math.floor(Math.random() * 6) + 1;
 
   diceImages[0].src = "images/dice" + gameData.roll1 + ".png";
   diceImages[1].src = "images/dice" + gameData.roll2 + ".png";
 
-  // Snake eyes
   gameData.rollSum = gameData.roll1 + gameData.roll2;
   if (gameData.rollSum === 2) {
     turnBox.textContent = "Oh snap! Snake eyes!";
@@ -202,7 +195,6 @@ function switchPlayer() {
   }, 1500);
 }
 
-// ========= CHECKS =========
 
 function checkWinningCondition() {
   if (gameData.score[gameData.index] >= gameData.gameEnd) {
