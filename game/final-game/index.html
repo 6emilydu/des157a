@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <title>The Pig Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+    
+  <header class="header">
+    <h1 class="title">THE PIG GAME</h1>
+  </header>
+
+  <section class="instructions">
+    <img src="images/pig.png" class="pig-icon" alt="Pig Icon">
+    <p>
+      ✲ There are two players. The player whose turn it is rolls the dice.
+      The total of the roll is added to the current player's score, unless a
+      die comes up as a “1”. If that happens, the turn is over.
+
+      Players may roll again or pass. First to reach 30 points wins.
+
+      Rolling double ones (snake eyes) resets your total score to zero!
+    </p>
+  </section>
+
+  <section class="start-screen">
+    <button class="start-btn">❤️ START A GAME?</button>
+  </section>
+
+  <section class="game-screen hidden">
+
+    <div class="game-top">
+      <div class="turn-box">
+        <div class="turn-content">
+          <img src="images/sans.png" class="player-icon" alt="Player Icon">
+          <p>✲ Roll for Player 1</p>
+        </div>
+      </div>
+
+      <div class="dice-area">
+        <img src="images/dice1.png" class="dice" alt="Dice 1">
+        <img src="images/dice1.png" class="dice" alt="Dice 2">
+      </div>
+
+      <div class="hp-container">
+        <div class="hp-row">
+          <span>Player 1 HP</span>
+          <div class="hp-bar player1-bar"></div>
+          <span class="player1-score">0 / 30</span>
+        </div>
+        <div class="hp-row">
+          <span>Player 2 HP</span>
+          <div class="hp-bar player2-bar"></div>
+          <span class="player2-score">0 / 30</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="roll-btn">O ROLL</button>
+      <button class="pass-btn">X PASS</button>
+    </div>
+
+    <button class="restart-btn">❤️ RESTART?</button>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 30px;
+}
+
+.instructions {
+  width: 85%;
+  margin: 0 auto;
+  padding: 15px;
+  border: 3px solid white;
+  display: flex;
+  gap: 6px;
+  line-height: 1.6;
+}
+
+.pig-icon {
+  width: 200px;
+  object-fit: contain;
+}
+
+.start-screen {
+  margin-top: 40px;
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1rem;
+  background: black;
+  border: 4px solid yellow;
+  color: yellow;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: yellow;
+  color: black;
+}
+
+.start-btn,
+.restart-btn,
+.roll-btn,
+.pass-btn {
+  display: inline-block;
+}
+
+.game-screen {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.game-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.turn-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.turn-box p {
+  margin: 0;
+  text-align: left;
+}
+
+.turn-box {
+  border: 3px solid white;
+  padding: 50px 30px;
+  max-width: 250px;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.player-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.dice-area {
+  width: auto;
+  max-width: 250px;
+  padding: 40px;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.dice {
+  width: 80px;
+}
+
+.hp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.hp-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.hp-bar {
+  width: 0;
+  max-width: 150px;
+  height: 20px;
+  background: yellow;
+  border: 2px solid white;
+  transition: width 0.3s ease-out;
+  position: relative;
+}
+
+.player1-bar {
+  background: yellow;
+}
+
+.player2-bar {
+  background: lightgreen;
+}
+
+.hp-bar.active {
+  box-shadow: 0 0 15px 2px yellow;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.restart-btn {
+  display: block;
+  margin: 35px auto;
+}
+
+@media (max-width: 650px) {
+  .game-top { flex-direction: column; gap: 20px; }
+  .turn-box { padding: 50px 20px; max-width: 200px; }
+  .dice-area { padding: 40px; max-width: 150px; }
+  .instructions{flex-direction: column; gap: 20px; align-items: center;}
+}
